@@ -2,46 +2,40 @@ package com.example.citymanagement.service.impl;
 
 
 import com.example.citymanagement.entity.Car;
-import com.example.citymanagement.repository.CarsRepository;
+import com.example.citymanagement.repository.CarRepository;
 import com.example.citymanagement.service.CarService;
-import jakarta.transaction.Transaction;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.List;
 
-@Service
-@RequiredArgsConstructor
 
+@RequiredArgsConstructor
+@Service
 public class CarServiceImpl implements CarService {
-    private final CarsRepository carsRepository;
+    private final CarRepository carRepository;
+
 
     @Override
     public List<Car> getAllCar() {
-        return carsRepository.getAllCar();
+        return carRepository.getAllCar();
     }
 
     @Override
     public Car getById(int id) {
-        return carsRepository.findById(id).orElseThrow();
+        return carRepository.findById(id).orElseThrow();
     }
 
     @Override
-    @Transactional
     public Car create(Car car) {
-
-
-        return null;
+        return carRepository.save(car);
     }
-
-    ;
 
     @Override
     @Transactional
-    public void deleteById(Long id) {
-
+    public void deleteById(int id) {
+        if (carRepository.findById(id).isPresent())
+            carRepository.deleteById(id);
     }
-
 }

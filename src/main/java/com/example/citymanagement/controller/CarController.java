@@ -2,8 +2,6 @@ package com.example.citymanagement.controller;
 
 import com.example.citymanagement.dto.CarDto;
 import com.example.citymanagement.dto.CarResponsDto;
-import com.example.citymanagement.entity.Car;
-import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -11,17 +9,17 @@ import java.util.List;
 
 
 
-public interface CarsController {
+public interface CarController {
 
     @GetMapping
      List<CarResponsDto> getAll();
 
     @GetMapping("/{id}")
-    Car getById(@PathVariable int id);
+    CarDto getById(@PathVariable int id);
 
     @PostMapping
-    Car create(@RequestBody CarDto carDto);
+    CarDto create(@RequestBody CarDto carDto);
 
     @DeleteMapping
-    void deleteById(Long id);
+    void deleteById(int id);
 }

@@ -1,5 +1,6 @@
 package com.example.citymanagement.service;
 
+import com.example.citymanagement.dto.CarDto;
 import com.example.citymanagement.entity.Car;
 import org.springframework.web.bind.annotation.RequestBody;
 
@@ -11,6 +12,6 @@ public interface CarService {
 
     Car create(Car car);
 
-    void deleteById(Long id);
+    void deleteById(int id);
 
 }
