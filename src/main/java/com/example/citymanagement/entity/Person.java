@@ -32,7 +32,7 @@ public class Person {
     private LocalDate birthDate;
 
     @OneToOne(cascade = CascadeType.REMOVE)
-    @JoinColumn(name = "passport_id", referencedColumnName = "id")
+  //  @JoinColumn(name = "passport_id", referencedColumnName = "id")
     private Passport passport;
 
     @OneToMany(cascade = CascadeType.REMOVE, mappedBy = "owner")

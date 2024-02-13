@@ -32,7 +32,7 @@ public class HouseControllerImpl implements HouseController {
     }
 
     @Override
-    @ResponseStatus(HttpStatus.OK)
+    @ResponseStatus(HttpStatus.CREATED)
     public HouseDto create(@RequestBody HouseDto houseDto) {
         return houseMapper.mapHouse(houseService.create(houseMapper.map(houseDto)));
     }

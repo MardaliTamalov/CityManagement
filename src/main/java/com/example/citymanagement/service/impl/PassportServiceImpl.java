@@ -18,15 +18,14 @@ public class PassportServiceImpl implements PassportService {
 
     @Override
     public Passport create(Person person) {
-        Random random = new Random();
 
-        int seriesNumber = IntStream.range(0, 10)
-                .map(i -> random.nextInt(10))
-                .sum();
+        int seriesNumber =  new Random().ints(1000000000, Integer.MAX_VALUE)
+                .boxed()
+                .findFirst()
+                .orElseThrow();
 
         Passport passport = new Passport(null, seriesNumber, LocalDate.now(),
                 person);
-
-        return passportRepository.save(passport);
+       return passportRepository.save(passport);
     }
 }

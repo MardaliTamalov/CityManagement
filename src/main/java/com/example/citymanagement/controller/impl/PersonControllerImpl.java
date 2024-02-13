@@ -32,7 +32,7 @@ public class PersonControllerImpl implements PersonController {
     }
 
     @Override
-    @ResponseStatus(HttpStatus.OK)
+    @ResponseStatus(HttpStatus.CREATED)
     public PersonDto create(@RequestBody PersonDto personDto) {
         return personMapper.
                 mapPerson(personService.create(personMapper.map(personDto)));

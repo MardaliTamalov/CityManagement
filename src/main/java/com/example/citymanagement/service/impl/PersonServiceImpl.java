@@ -2,6 +2,7 @@ package com.example.citymanagement.service.impl;
 
 import com.example.citymanagement.entity.Passport;
 import com.example.citymanagement.entity.Person;
+import com.example.citymanagement.exception.PersonNotFoundException;
 import com.example.citymanagement.repository.PassportRepository;
 import com.example.citymanagement.repository.PersonRepository;
 import com.example.citymanagement.service.PassportService;
@@ -30,7 +31,7 @@ public class PersonServiceImpl implements PersonService {
 
     @Override
     public Person getById(int id) {
-        return personRepository.findById(id).orElseThrow();
+        return personRepository.findById(id).orElseThrow(()->new PersonNotFoundException(id));
     }
 
     @Override
