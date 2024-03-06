@@ -3,6 +3,7 @@ package com.example.citymanagement.service.impl;
 import com.example.citymanagement.entity.Passport;
 import com.example.citymanagement.entity.Person;
 import com.example.citymanagement.exception.PersonNotFoundException;
+import com.example.citymanagement.repository.HouseRepository;
 import com.example.citymanagement.repository.PassportRepository;
 import com.example.citymanagement.repository.PersonRepository;
 import com.example.citymanagement.service.PassportService;
@@ -23,6 +24,7 @@ import java.util.stream.IntStream;
 public class PersonServiceImpl implements PersonService {
     private final PersonRepository personRepository;
     private final PassportService passportService;
+    private final HouseRepository houseRepository;
 
     @Override
     public List<Person> getAllPerson() {
@@ -32,6 +34,16 @@ public class PersonServiceImpl implements PersonService {
     @Override
     public Person getById(int id) {
         return personRepository.findById(id).orElseThrow(()->new PersonNotFoundException(id));
+    }
+
+    @Override
+    public List<Person> getByAddress(String address) {
+        return houseRepository.findByAddress(address);
+    }
+
+    @Override
+    public List<Passport> getBySurname(String surname) {
+        return personRepository.findBySurname(surname);
     }
 
     @Override

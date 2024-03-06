@@ -15,5 +15,4 @@ public interface PersonMapper {
 
     Person map(PersonDto personDto);
     PersonDto mapPerson(Person person);
-
 }

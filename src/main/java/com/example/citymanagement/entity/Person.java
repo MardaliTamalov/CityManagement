@@ -44,5 +44,4 @@ public class Person {
             inverseJoinColumns = @JoinColumn(name = "house_id", referencedColumnName = "id", nullable=false)
     )
     private List<House> houseList;
-
 }

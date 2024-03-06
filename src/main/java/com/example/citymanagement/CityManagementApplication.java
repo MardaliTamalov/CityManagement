@@ -10,5 +10,4 @@ public class CityManagementApplication {
 
         SpringApplication.run(CityManagementApplication.class, args);
     }
-
 }

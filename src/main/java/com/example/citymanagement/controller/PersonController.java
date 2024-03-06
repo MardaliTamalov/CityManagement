@@ -1,5 +1,6 @@
 package com.example.citymanagement.controller;
 
+import com.example.citymanagement.dto.PassportDto;
 import com.example.citymanagement.dto.PersonDto;
 import com.example.citymanagement.dto.PersonResponsDto;
 import org.springframework.web.bind.annotation.*;
@@ -14,6 +15,13 @@ public interface PersonController {
 
     @GetMapping("/{id}")
     PersonDto getById(@PathVariable int id);
+
+    @GetMapping("/{address}")
+    List<PersonResponsDto> getByAddress(@PathVariable String address);
+
+    @GetMapping("/{surname}")
+    List<PassportDto> getBySurname(@PathVariable String surname);
+
 
     @PostMapping
     PersonDto create(@RequestBody PersonDto personDto);

@@ -33,5 +33,5 @@ public class House {
            joinColumns = @JoinColumn(name = "house_id", referencedColumnName = "id", nullable=false),
            inverseJoinColumns =  @JoinColumn(name = "person_id", referencedColumnName = "id", nullable=false)
    )
-    private List<Person> person_id;
+    private List<Person> personList;
 }
