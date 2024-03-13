@@ -1,8 +1,6 @@
 package com.example.citymanagement.controller;
 
-import com.example.citymanagement.dto.PassportDto;
-import com.example.citymanagement.dto.PersonDto;
-import com.example.citymanagement.dto.PersonResponsDto;
+import com.example.citymanagement.dto.*;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -16,12 +14,11 @@ public interface PersonController {
     @GetMapping("/{id}")
     PersonDto getById(@PathVariable int id);
 
-    @GetMapping("/{address}")
-    List<PersonResponsDto> getByAddress(@PathVariable String address);
+    @PostMapping("address")
+    List<PersonResponsDto> getByAddress(@RequestBody GetByAdddressDto address);
 
-    @GetMapping("/{surname}")
-    List<PassportDto> getBySurname(@PathVariable String surname);
-
+    @GetMapping("surname")
+    List<PassportDto> getBySurname(@RequestBody GetBySurnameDto surname);
 
     @PostMapping
     PersonDto create(@RequestBody PersonDto personDto);

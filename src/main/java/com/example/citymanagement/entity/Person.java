@@ -31,6 +31,9 @@ public class Person {
     @Column(name= "birth_date")
     private LocalDate birthDate;
 
+    @Column(name = "gender")
+    private String gender;
+
     @OneToOne(cascade = CascadeType.REMOVE)
   //  @JoinColumn(name = "passport_id", referencedColumnName = "id")
     private Passport passport;

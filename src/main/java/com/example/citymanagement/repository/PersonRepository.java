@@ -10,6 +10,7 @@ import java.util.List;
 
 public interface PersonRepository extends JpaRepository<Person, Integer> {
     @Query(nativeQuery = true,
-            value = "select * from persons where surname like 'surname%'")
-    List<Passport> findBySurname(@Param("surname") String surname);
+            value = "select * from persons where upper(surname) like upper(CONCAT(:surname,'%'))")
+//    and gender like LOWER('м%')
+    List<Person> findBySurname(@Param("surname") String surname);
 }

@@ -1,0 +1,6 @@
+databaseChangeLog:
+  - include:
+      id: '1'
+      author: 'Mardali'
+      context: create_tables
+      file: db/changelog/migration/create_table.sql

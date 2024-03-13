@@ -10,8 +10,8 @@ import org.springframework.data.repository.query.Param;
 import java.util.List;
 
 public interface  HouseRepository extends JpaRepository<House, Integer> {
-    @Query(value = "select DISTINCT h from House h WHERE LOWER('h.address') = LOWER(:address)")
-    List<Person> findByAddress(@Param("address") String address);
+    @Query(value = "select DISTINCT h from House h WHERE LOWER(h.adress) = LOWER(:address)")
+    List<House> findByAddress(@Param("address") String address);
 
 //    @Query(
 //            value = "SELECT DISTINCT * FROM houses WHERE LOWER(address) = LOWER(:address)",
