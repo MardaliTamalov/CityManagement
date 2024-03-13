@@ -38,12 +38,16 @@ public class PersonServiceImpl implements PersonService {
 
     @Override
     public List<Person> getByAddress(String address) {
-        return houseRepository.findByAddress(address);
+        return houseRepository.findByAddress(address).stream()
+                .flatMap(house->house.getPersonList().stream())
+                .collect(Collectors.toList());
     }
 
     @Override
     public List<Passport> getBySurname(String surname) {
-        return personRepository.findBySurname(surname);
+        return personRepository.findBySurname(surname).stream()
+                .map(Person::getPassport)
+                        .collect(Collectors.toList());
     }
 
     @Override

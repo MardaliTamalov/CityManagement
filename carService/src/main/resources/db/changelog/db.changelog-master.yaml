@@ -1,0 +1,11 @@
+databaseChangeLog:
+  - include:
+      id: '1'
+      author: 'Mardali'
+      context: create_tables
+      file: db/changelog/migration/create_table.sql
+  - include:
+      id: '2'
+      author: 'Mardali'
+      context: add_column
+      file: db/changelog/migration/add_column.sql

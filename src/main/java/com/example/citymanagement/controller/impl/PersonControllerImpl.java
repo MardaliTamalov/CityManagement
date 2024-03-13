@@ -1,9 +1,7 @@
 package com.example.citymanagement.controller.impl;
 
 import com.example.citymanagement.controller.PersonController;
-import com.example.citymanagement.dto.PassportDto;
-import com.example.citymanagement.dto.PersonDto;
-import com.example.citymanagement.dto.PersonResponsDto;
+import com.example.citymanagement.dto.*;
 import com.example.citymanagement.mapper.PassportMapper;
 import com.example.citymanagement.mapper.PersonMapper;
 import com.example.citymanagement.service.PersonService;
@@ -30,13 +28,13 @@ public class PersonControllerImpl implements PersonController {
 
     @Override
     @ResponseStatus(HttpStatus.OK)
-    public List<PersonResponsDto> getByAddress(@PathVariable String address) {
-        return personMapper.map(personService.getByAddress(address));
+    public List<PersonResponsDto> getByAddress(@RequestBody GetByAdddressDto address) {
+        return personMapper.map(personService.getByAddress(address.getAddress()));
     }
 
     @Override
-    public List<PassportDto> getBySurname(String surname) {
-        return passportMapper.map(personService.getBySurname(surname));
+    public List<PassportDto> getBySurname(GetBySurnameDto surname) {
+        return passportMapper.map(personService.getBySurname(surname.surname()));
     }
 
     @Override
@@ -44,7 +42,6 @@ public class PersonControllerImpl implements PersonController {
     public PersonDto getById(@PathVariable int id) {
         return personMapper.mapPerson(personService.getById(id));
     }
-
 
     @Override
     @ResponseStatus(HttpStatus.CREATED)
