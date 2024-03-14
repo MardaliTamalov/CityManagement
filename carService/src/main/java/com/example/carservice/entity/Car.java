@@ -33,5 +33,4 @@ public class Car {
 
     @Column(name = "person_id")
     private int personId;
-
 }
