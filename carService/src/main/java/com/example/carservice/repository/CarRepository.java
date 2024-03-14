@@ -26,6 +26,6 @@ Car getById(int id);
 
 Car findCarByBrand(String brand);
 
-Car findCarByPersonId(int id);
+Car findCarByPerson_id(int id);
 
 }

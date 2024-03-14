@@ -32,5 +32,9 @@ public class Car {
     private int releaseYear;
 
     @Column(name = "person_id")
+<<<<<<< HEAD
     private int personId;
+=======
+    private int person_id;
+>>>>>>> origin/main
 }

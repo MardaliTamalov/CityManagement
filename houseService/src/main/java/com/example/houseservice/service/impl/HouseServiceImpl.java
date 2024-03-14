@@ -27,7 +27,7 @@ public class HouseServiceImpl implements HouseService {
 
     @Override
     public House addResident(int id) {
-        return houseRepository.findHouseByPersonId(id);
+        return houseRepository.findHouseByPerson_id(id);
     }
 
     @Override

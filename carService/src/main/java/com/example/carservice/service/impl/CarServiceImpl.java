@@ -28,7 +28,7 @@ public class CarServiceImpl implements CarService {
 
     @Override
     public Car addOwner(int id) {
-        return carRepository.findCarByPersonId(id); }
+        return carRepository.findCarByPerson_id(id); }
 
     @Override
     public Car create(Car car) {
