@@ -2,6 +2,16 @@ server:
   port: 8081
 
 spring:
+  kafka:
+    consumer:
+      group-id: delete_citizen_group
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+    producer:
+       key-serializer: org.apache.kafka.common.serialization.StringSerializer
+       value-serializer: org.apache.kafka.common.serialization.StringSerializer
+       bootstrap-servers: "127.0.0.1:29092"
+    bootstrap-servers: "127.0.0.1:29092"
   datasource:
     url: jdbc:postgresql://localhost:5431/car_service
     username: Mardali
