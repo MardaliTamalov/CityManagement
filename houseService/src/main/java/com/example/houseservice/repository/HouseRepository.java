@@ -12,7 +12,7 @@ public interface  HouseRepository extends JpaRepository<House, Integer> {
     @Query(value = "select DISTINCT h from House h WHERE LOWER(h.adress) = LOWER(:address)")
     List<House> findByAddress(@Param("address") String address);
 
-    House findHouseByPerson_id(int id);
+    House findHouseByPersonId(int id);
 
 //    @Query(
 //            value = "SELECT DISTINCT * FROM houses WHERE LOWER(address) = LOWER(:address)",

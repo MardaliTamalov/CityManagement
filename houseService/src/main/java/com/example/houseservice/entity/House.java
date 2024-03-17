@@ -6,8 +6,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.util.List;
-
 @Entity
 @Getter
 @Setter
@@ -28,5 +26,5 @@ public class House {
     private Double area;
 
     @Column(name = "person_id")
-    private int person_id;
+    private int personId;
 }

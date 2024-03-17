@@ -8,9 +8,9 @@ import org.springframework.stereotype.Component;
 @Component
 @RequiredArgsConstructor
 public class TestProducer {
-    private final KafkaTemplate<String, String> kafkaTemplate;
+    private final KafkaTemplate<String, Object> kafkaTemplate;
 
     public void testSendMessage() {
-        kafkaTemplate.send("car-delete-event", "привет мир!");
+        kafkaTemplate.send("demo", "привет мир!");
     }
 }
