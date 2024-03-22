@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface PersonController {
 
-    @GetMapping("/persons)")
+    @GetMapping("/person)")
     List<PersonResponsDto> getAllPerson();
 
     @GetMapping("/persons/{id}")
@@ -23,6 +23,6 @@ public interface PersonController {
     @PostMapping("/persons")
     PersonDto create(@RequestBody PersonDto personDto);
 
-    @DeleteMapping("/persons")
+    @DeleteMapping("/persons/{id}")
     void deleteById(int id);
 }

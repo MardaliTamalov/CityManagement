@@ -1,9 +1,11 @@
 package com.example.personservice.service.impl;
 
+import com.example.api.kafka.CitizenDeleteDto;
 import com.example.personservice.entity.Passport;
 import com.example.personservice.entity.Person;
 import com.example.personservice.exception.PersonNotFoundException;
 //import com.example.personservice.repository.HouseRepository;
+import com.example.personservice.kafka.Producer;
 import com.example.personservice.repository.PersonRepository;
 import com.example.personservice.service.PassportService;
 import com.example.personservice.service.PersonService;
@@ -20,6 +22,7 @@ import java.util.stream.Collectors;
 public class PersonServiceImpl implements PersonService {
     private final PersonRepository personRepository;
     private final PassportService passportService;
+    private final Producer producer;
 //    private final HouseRepository houseRepository;
 
     @Override
@@ -57,7 +60,10 @@ public class PersonServiceImpl implements PersonService {
 
     @Override
     public void deleteById(int id) {
-        if (personRepository.findById(id).isPresent())
+        if (personRepository.findById(id).isPresent()){
             personRepository.deleteById(id);
+        producer.sendMessage(new CitizenDeleteDto(id));}
     }
+
+
 }

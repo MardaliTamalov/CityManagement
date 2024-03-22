@@ -14,4 +14,6 @@ public interface CarService {
 
     void deleteById(int id);
 
+    void deleteByPersonId(int id);
+
 }

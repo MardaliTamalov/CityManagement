@@ -28,4 +28,6 @@ Car findCarByBrand(String brand);
 
 Car findCarByPersonId(int id);
 
+void deleteAllByPersonId(int personId);
+
 }
