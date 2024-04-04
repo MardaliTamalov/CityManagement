@@ -4,3 +4,8 @@ databaseChangeLog:
       author: 'Mardali'
       context: create_tables
       file: db/changelog/migration/create_table.sql
+  - include:
+      id: '2'
+      author: 'Mardali'
+      context: add_tables
+      file: db/changelog/migration/add_column_status.sql

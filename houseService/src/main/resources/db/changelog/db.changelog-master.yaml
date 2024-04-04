@@ -10,3 +10,15 @@ databaseChangeLog:
       author: 'Mardali'
       context: add_column
       file: db/changelog/migration/add_column.sql
+
+  - include:
+      id: '3'
+      author: 'Mardali'
+      context: create_table
+      file: db/changelog/migration/create_table_owner_house.sql
+
+  - include:
+      id: '4'
+      author: 'Mardali'
+      context: drop_column_person_id
+      file: db/changelog/migration/drop_column.sql

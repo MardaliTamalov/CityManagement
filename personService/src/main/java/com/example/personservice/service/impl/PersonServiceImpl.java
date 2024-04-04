@@ -5,7 +5,7 @@ import com.example.personservice.entity.Passport;
 import com.example.personservice.entity.Person;
 import com.example.personservice.exception.PersonNotFoundException;
 //import com.example.personservice.repository.HouseRepository;
-import com.example.personservice.kafka.Producer;
+import com.example.personservice.kafka.PersonDeleteProducer;
 import com.example.personservice.repository.PersonRepository;
 import com.example.personservice.service.PassportService;
 import com.example.personservice.service.PersonService;
@@ -22,7 +22,7 @@ import java.util.stream.Collectors;
 public class PersonServiceImpl implements PersonService {
     private final PersonRepository personRepository;
     private final PassportService passportService;
-    private final Producer producer;
+    private final PersonDeleteProducer personDeleteProducer;
 //    private final HouseRepository houseRepository;
 
     @Override
@@ -32,7 +32,7 @@ public class PersonServiceImpl implements PersonService {
 
     @Override
     public Person getById(int id) {
-        return personRepository.findById(id).orElseThrow(()->new PersonNotFoundException(id));
+        return personRepository.findById(id).orElseThrow(() -> new PersonNotFoundException(id));
     }
 
     @Override
@@ -47,7 +47,7 @@ public class PersonServiceImpl implements PersonService {
     public List<Passport> getBySurname(String surname) {
         return personRepository.findBySurname(surname).stream()
                 .map(Person::getPassport)
-                        .collect(Collectors.toList());
+                .collect(Collectors.toList());
     }
 
     @Override
@@ -59,11 +59,20 @@ public class PersonServiceImpl implements PersonService {
     }
 
     @Override
+    @Transactional
     public void deleteById(int id) {
-        if (personRepository.findById(id).isPresent()){
-            personRepository.deleteById(id);
-        producer.sendMessage(new CitizenDeleteDto(id));}
+        if (personRepository.findById(id).isPresent()) {
+            personRepository.setStatusDelete(id);
+            personDeleteProducer.sendMessage(new CitizenDeleteDto(id));
+        }
     }
 
+    @Override
+    @Transactional
+    public void rollbackDeleteById(int id) {
+        if (personRepository.findById(id).isPresent()) {
+            personRepository.setStatusActive(id);
+        }
+    }
 
 }

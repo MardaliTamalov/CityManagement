@@ -2,6 +2,7 @@ package com.example.personservice.service.impl;
 
 import com.example.personservice.entity.Passport;
 import com.example.personservice.entity.Person;
+import com.example.personservice.enums.Status;
 import com.example.personservice.repository.PassportRepository;
 import com.example.personservice.service.PassportService;
 import lombok.RequiredArgsConstructor;
@@ -24,7 +25,7 @@ public class PassportServiceImpl implements PassportService {
                 .orElseThrow();
 
         Passport passport = new Passport(null, seriesNumber, LocalDate.now(),
-                person);
+                person, Status.ACTIVE);
        return passportRepository.save(passport);
     }
 }

@@ -1,5 +1,6 @@
 package com.example.carservice.entity;
 
+import com.example.carservice.enums.Status;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -33,4 +34,8 @@ public class Car {
 
     @Column(name = "person_id")
     private int personId;
+
+    @Column(name = "status")
+    @Enumerated(EnumType.STRING)
+    private Status status;
 }

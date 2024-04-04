@@ -1,4 +1,4 @@
-package com.example.personservice.kafka;
+package com.example.carservice.kafka;
 
 import com.example.api.kafka.CitizenDeleteDto;
 import lombok.RequiredArgsConstructor;
@@ -7,10 +7,12 @@ import org.springframework.stereotype.Component;
 
 @Component
 @RequiredArgsConstructor
-public class Producer {
+
+public class HouseDeleteProducer {
     private final KafkaTemplate<String, Object> kafkaTemplate;
 
-    public void sendMessage(CitizenDeleteDto citizenDeleteDto) {
-        kafkaTemplate.send("car_delete_event",citizenDeleteDto);
+    public void sendDeleteHouse(CitizenDeleteDto citizenDeleteDto) {
+        kafkaTemplate.send("delete_house", citizenDeleteDto);
     }
+
 }

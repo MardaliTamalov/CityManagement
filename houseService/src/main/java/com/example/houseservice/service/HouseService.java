@@ -11,5 +11,6 @@ public interface HouseService {
     House create(House house);
 
     void deleteById(int id);
+    void deleteByPersonId(int id);
 
 }

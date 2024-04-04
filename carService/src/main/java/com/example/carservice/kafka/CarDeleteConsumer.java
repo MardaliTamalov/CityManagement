@@ -1,7 +1,6 @@
 package com.example.carservice.kafka;
 
 import com.example.api.kafka.CitizenDeleteDto;
-import com.example.carservice.repository.CarRepository;
 import com.example.carservice.service.CarService;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -12,7 +11,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 @RequiredArgsConstructor
-public class TestConsumer {
+public class CarDeleteConsumer {
     private final CarService carService;
     private final ObjectMapper objectMapper;
 

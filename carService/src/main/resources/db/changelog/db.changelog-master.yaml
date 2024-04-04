@@ -9,3 +9,8 @@ databaseChangeLog:
       author: 'Mardali'
       context: add_column
       file: db/changelog/migration/add_column.sql
+  - include:
+      id: '3'
+      author: 'Mardali'
+      context: add_column
+      file: db/changelog/migration/add_column_status.sql
