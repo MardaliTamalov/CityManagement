@@ -25,6 +25,4 @@ public class House {
     @Column(name = "area")
     private Double area;
 
-    @Column(name = "person_id")
-    private int personId;
 }

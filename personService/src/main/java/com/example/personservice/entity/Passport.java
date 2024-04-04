@@ -1,5 +1,6 @@
 package com.example.personservice.entity;
 
+import com.example.personservice.enums.Status;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -29,4 +30,8 @@ public class Passport {
 
     @OneToOne(cascade = CascadeType.REMOVE, mappedBy = "passport")
      private Person person;
+
+    @Column(name = "status")
+    @Enumerated(EnumType.STRING)
+    private Status status;
 }

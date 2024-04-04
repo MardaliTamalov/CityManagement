@@ -18,6 +18,6 @@ public interface HouseController {
     @PostMapping
     HouseDto create(@RequestBody HouseDto houseDto);
 
-    @DeleteMapping
+    @DeleteMapping("/{id}")
     void deleteById(int id);
 }

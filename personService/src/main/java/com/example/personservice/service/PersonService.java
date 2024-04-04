@@ -15,5 +15,6 @@ public interface PersonService {
     Person create(Person person);
 
     void deleteById(int id);
+    void rollbackDeleteById(int id);
 
 }

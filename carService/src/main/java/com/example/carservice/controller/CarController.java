@@ -19,6 +19,6 @@ public interface CarController {
     @PutMapping("/addOwner/{id}")
     CarResponsDto addOwner(@PathVariable int id);
 
-    @DeleteMapping
+    @DeleteMapping("/{id}")
     void deleteById(int id);
 }
